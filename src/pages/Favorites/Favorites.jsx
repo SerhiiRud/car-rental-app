@@ -1,5 +1,11 @@
+import Filterbar from "../../components/Filterbar";
+import Gallery from "../../components/Gallery";
+
 const Favorites = () => {
-  return <div>Favorites</div>;
+  <>
+    <Filterbar />
+    <Gallery />
+  </>;
 };
 
 export default Favorites;
