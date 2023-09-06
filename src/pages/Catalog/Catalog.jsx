@@ -1,3 +1,5 @@
-export const Home = () => {
+const Catalog = () => {
   return <div>Catalog</div>;
 };
+
+export default Catalog;

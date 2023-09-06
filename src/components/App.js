@@ -1,11 +1,11 @@
 import { Route, Routes } from "react-router-dom";
 import { lazy, Suspense } from "react";
-import { Loader } from "./Loader/Loader";
 
-const Home = lazy(() => import("pages/Home/Home"));
-const Sidebar = lazy(() => import("components/Sidebar/Sidebar"));
-const Catalog = lazy(() => import("pages/Catalog/Catalog"));
-const Favorites = lazy(() => import("pages/Favorites/Favorites"));
+const Home = lazy(() => import("../pages/Home"));
+const Sidebar = lazy(() => import("../components/Sidebar"));
+const Catalog = lazy(() => import("../pages/Catalog"));
+const Favorites = lazy(() => import("../pages/Favorites"));
+const Loader = lazy(() => import("../components/Loader"));
 
 export const App = () => {
   <Suspense fallback={<Loader />}>
