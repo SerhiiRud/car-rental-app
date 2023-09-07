@@ -7,6 +7,7 @@ const Catalog = lazy(() => import("../pages/Catalog"));
 const Favorites = lazy(() => import("../pages/Favorites"));
 const Loader = lazy(() => import("../components/Loader"));
 const CarCard = lazy(() => import("../components/CarCard"));
+const CarModal = lazy(() => import("../components/CarModal"));
 
 export const App = () => {
   return (
@@ -15,7 +16,6 @@ export const App = () => {
         <Route path="/" element={<Sidebar />}>
           <Route index element={<Home />} />
           <Route path="cars" element={<Catalog />} />
-          <Route path="cars/:carId" element={<CarCard />} />
           <Route path="favorites" element={<Favorites />} />
         </Route>
       </Routes>

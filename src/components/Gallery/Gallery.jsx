@@ -1,3 +1,5 @@
+import CarCard from "../CarCard/CarCard";
+
 const Gallery = ({ cars }) => {
   return (
     <>
@@ -5,9 +7,7 @@ const Gallery = ({ cars }) => {
       <ul>
         {cars.map((car) => (
           <li key={car.id}>
-            <div>
-              {car.make} {car.id}
-            </div>
+            <CarCard car={car} />
           </li>
         ))}
       </ul>

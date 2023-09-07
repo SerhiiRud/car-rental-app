@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
 import { fetchCars, limit } from "../../services/API";
 import Filterbar from "../../components/Filterbar";
 import Gallery from "../../components/Gallery";
@@ -8,7 +7,6 @@ const Catalog = () => {
   const [cars, setCars] = useState([]);
   const [page, setPage] = useState(1);
   const [error, setError] = useState(null);
-  const [searchParams, setSearchParams] = useSearchParams();
   const [isLoading, setIsLoading] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
 
