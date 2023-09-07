@@ -1,10 +1,22 @@
 import { Outlet } from "react-router-dom";
+import { Header, Menu, HeaderLink } from "./Sidebar.styled";
 
 const Sidebar = () => {
   return (
     <>
-      <div>Sidebar</div>
-      <Outlet />
+      <Header>
+        <Menu>
+          <li>
+            <HeaderLink to="/">Home</HeaderLink>
+          </li>
+          <li>
+            <HeaderLink to="/cars">Cars</HeaderLink>
+          </li>
+        </Menu>
+      </Header>
+      <main>
+        <Outlet />
+      </main>
     </>
   );
 };
