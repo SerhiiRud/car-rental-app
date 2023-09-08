@@ -1,7 +1,8 @@
 import { useState } from "react";
 import CarModal from "../CarModal/CarModal";
+import { FavoriteButton } from "./CarCard.styled";
 
-const CarCard = ({ car }) => {
+const CarCard = ({ car, setFavorite }) => {
   const [isOpened, setIsOpen] = useState(false);
 
   const handleCloseModal = () => {
@@ -19,7 +20,14 @@ const CarCard = ({ car }) => {
         <span>{year}</span>
         <span>{rentalPrice}</span>
       </div>
-
+      <FavoriteButton
+        type="button"
+        id={id}
+        onClick={setFavorite}
+        isFavorite={favorite}
+      >
+        Favorite
+      </FavoriteButton>
       <button
         type="button"
         onClick={() => {

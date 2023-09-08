@@ -12,6 +12,9 @@ const Sidebar = () => {
           <li>
             <HeaderLink to="/cars">Cars</HeaderLink>
           </li>
+          <li>
+            <HeaderLink to="/favorites">Favorite Cars</HeaderLink>
+          </li>
         </Menu>
       </Header>
       <main>
