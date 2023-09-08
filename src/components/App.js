@@ -13,6 +13,17 @@ const Favorites = lazy(() => import("../pages/Favorites"));
 
 export const App = () => {
   const [cars, setCars] = useState([]);
+
+  const favoriteToggle = (e) => {
+    const id = Number(e.currentTarget.id);
+
+    const updatedCars = cars.map((car) => ({
+      ...car,
+      favorite: car.id === id ? !car.favorite : car.favorite,
+    }));
+    setCars(updatedCars);
+  };
+
   return (
     <Suspense fallback={<Loader />}>
       <Routes>
@@ -20,11 +31,23 @@ export const App = () => {
           <Route index element={<Home />} />
           <Route
             path="cars"
-            element={<Catalog cars={cars} setCars={setCars} />}
+            element={
+              <Catalog
+                cars={cars}
+                setCars={setCars}
+                favoriteToggle={favoriteToggle}
+              />
+            }
           />
           <Route
             path="favorites"
-            element={<Favorites cars={cars} setCars={setCars} />}
+            element={
+              <Favorites
+                cars={cars}
+                setCars={setCars}
+                favoriteToggle={favoriteToggle}
+              />
+            }
           />
         </Route>
       </Routes>

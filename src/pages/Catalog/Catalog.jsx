@@ -3,23 +3,13 @@ import { fetchCars, limit } from "../../services/API";
 import Filterbar from "../../components/Filterbar";
 import Gallery from "../../components/Gallery";
 
-const Catalog = ({ cars, setCars }) => {
+const Catalog = ({ cars, setCars, favoriteToggle }) => {
   const [page, setPage] = useState(1);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
 
   const ERROR_MSG = "Error happend";
-
-  const favoriteToggle = (e) => {
-    const id = Number(e.currentTarget.id);
-
-    const updatedCars = cars.map((car) => ({
-      ...car,
-      favorite: car.id === id ? !car.favorite : car.favorite,
-    }));
-    setCars(updatedCars);
-  };
 
   useEffect(() => {
     const fetchData = async () => {
