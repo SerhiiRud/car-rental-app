@@ -16,7 +16,10 @@ const Catalog = () => {
     const fetchData = async () => {
       try {
         const res = await fetchCars(page);
-        setCars([...cars, ...res.data]);
+        const favoritedCars = res.data.map((car) => {
+          return { ...car, favorite: false };
+        });
+        setCars([...cars, ...favoritedCars]);
       } catch (error) {
         setError(ERROR_MSG);
       } finally {

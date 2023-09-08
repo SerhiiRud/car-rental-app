@@ -9,9 +9,10 @@ const CarCard = ({ car }) => {
     setIsOpen(!isOpened);
   };
 
-  const { id, img, make, year, rentalPrice } = car;
+  const { id, favorite, img, make, year, rentalPrice } = car;
   return (
     <div>
+      <span>{favorite}</span>
       <img src={img}></img>
       <div>
         <span>{make}, </span>
@@ -27,7 +28,7 @@ const CarCard = ({ car }) => {
       >
         Learn more
       </button>
-      {isOpened && <CarModal onCloseModal={handleCloseModal} />}
+      {isOpened && <CarModal car={car} onCloseModal={handleCloseModal} />}
     </div>
   );
 };
