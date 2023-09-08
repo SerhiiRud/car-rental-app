@@ -16,10 +16,12 @@ const Catalog = () => {
     const fetchData = async () => {
       try {
         const res = await fetchCars(page);
-        const favoritedCars = res.data.map((car) => {
-          return { ...car, favorite: false };
-        });
-        setCars([...cars, ...favoritedCars]);
+        const favoritedCars = res.data.map((car) => ({
+          ...car,
+          favorite: false,
+        }));
+        console.log(cars);
+        setCars((cars) => [...cars, ...favoritedCars]);
       } catch (error) {
         setError(ERROR_MSG);
       } finally {
@@ -28,7 +30,7 @@ const Catalog = () => {
       }
     };
     fetchData();
-  }, [page]);
+  }, [page, cars]);
 
   return (
     <>
