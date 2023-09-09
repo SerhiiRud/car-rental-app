@@ -40,7 +40,6 @@ export const App = () => {
     setCars(updatedCars);
     const favoriteCars = updatedCars.filter((car) => car.favorite === true);
     console.log(favoriteCars);
-    //setFavs((prev) => [...prev, ...favoriteCars]);
     localStorage.setItem("favs", JSON.stringify(favoriteCars));
   };
 
