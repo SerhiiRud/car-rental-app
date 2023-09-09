@@ -49,7 +49,7 @@ export const App = () => {
         <Route path="/" element={<Sidebar />}>
           <Route index element={<Home />} />
           <Route
-            path="cars"
+            path="/cars"
             element={
               <Catalog
                 cars={cars}
@@ -61,7 +61,7 @@ export const App = () => {
             }
           />
           <Route
-            path="favorites"
+            path="/favorites"
             element={
               <Favorites
                 cars={cars}
