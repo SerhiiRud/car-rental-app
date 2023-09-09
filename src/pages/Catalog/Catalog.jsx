@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { fetchCars, limit } from "../../services/API";
+import { fetchAPI, limit } from "../../services/API";
 import Filterbar from "../../components/Filterbar";
 import Gallery from "../../components/Gallery";
 
@@ -15,10 +15,15 @@ const Catalog = ({ cars, setCars, favoriteToggle }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetchCars(page);
+        setIsLoading(true);
+        const favoriteCars = localStorage.getItem("favs")
+          ? JSON.parse(localStorage.getItem("favs")).map((fav) => fav.id)
+          : [];
+        console.log(favoriteCars);
+        const res = await fetchAPI(page);
         const favoritedCars = res.data.map((car) => ({
           ...car,
-          favorite: false,
+          favorite: favoriteCars.includes(car.id) ? true : false,
         }));
 
         setCars(favoritedCars);
@@ -30,7 +35,7 @@ const Catalog = ({ cars, setCars, favoriteToggle }) => {
       }
     };
     fetchData();
-  }, [page]);
+  }, [page, setCars]);
 
   return (
     <>

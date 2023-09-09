@@ -1,7 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { lazy, Suspense } from "react";
-import { fetchAPI, limit } from "../../services/API";
 import Loader from "./Loader";
 
 const Home = lazy(() => import("../pages/Home"));
@@ -12,24 +11,15 @@ const Favorites = lazy(() => import("../pages/Favorites"));
 export const App = () => {
   const [cars, setCars] = useState([]);
   const [favs, setFavs] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
 
+  // useEffect(() => {
 
-  const fetchCars = async () => {
-    try {
-      setIsLoading(true);
-      const fetchedCars = await fetchAPI();
-      
-    }
-  }
-
-  useEffect(() => {
-    setFavs(
-      localStorage.getItem("favs")
-        ? JSON.parse(localStorage.getItem("favs"))
-        : []
-    );
-  }, []);
+  // setFavs(
+  //   localStorage.getItem("favs")
+  //     ? JSON.parse(localStorage.getItem("favs"))
+  //     : []
+  // );
+  // }, []);
 
   // useEffect(() => {
   //   const favsArray = favs.map((fav) => fav.id);
@@ -50,7 +40,7 @@ export const App = () => {
     setCars(updatedCars);
     const favoriteCars = updatedCars.filter((car) => car.favorite === true);
     console.log(favoriteCars);
-    setFavs(favoriteCars);
+    //setFavs((prev) => [...prev, ...favoriteCars]);
     localStorage.setItem("favs", JSON.stringify(favoriteCars));
   };
 
