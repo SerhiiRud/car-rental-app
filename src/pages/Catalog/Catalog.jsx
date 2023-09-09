@@ -4,6 +4,7 @@ import Filterbar from "../../components/Filterbar";
 import Gallery from "../../components/Gallery";
 
 const Catalog = ({ cars, setCars, favoriteToggle }) => {
+  const [filteredCars, setFilteredCars] = useState([]);
   const [page, setPage] = useState(1);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -21,7 +22,6 @@ const Catalog = ({ cars, setCars, favoriteToggle }) => {
         }));
 
         setCars(favoritedCars);
-        console.log(cars);
       } catch (error) {
         setError(ERROR_MSG);
       } finally {

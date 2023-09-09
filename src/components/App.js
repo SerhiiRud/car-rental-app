@@ -1,18 +1,44 @@
 import { Route, Routes } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { lazy, Suspense } from "react";
+import { fetchAPI, limit } from "../../services/API";
 import Loader from "./Loader";
 
 const Home = lazy(() => import("../pages/Home"));
 const Sidebar = lazy(() => import("../components/Sidebar"));
 const Catalog = lazy(() => import("../pages/Catalog"));
 const Favorites = lazy(() => import("../pages/Favorites"));
-// const Loader = lazy(() => import("../components/Loader"));
-// const CarCard = lazy(() => import("../components/CarCard"));
-// const CarModal = lazy(() => import("../components/CarModal"));
 
 export const App = () => {
   const [cars, setCars] = useState([]);
+  const [favs, setFavs] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+
+
+  const fetchCars = async () => {
+    try {
+      setIsLoading(true);
+      const fetchedCars = await fetchAPI();
+      
+    }
+  }
+
+  useEffect(() => {
+    setFavs(
+      localStorage.getItem("favs")
+        ? JSON.parse(localStorage.getItem("favs"))
+        : []
+    );
+  }, []);
+
+  // useEffect(() => {
+  //   const favsArray = favs.map((fav) => fav.id);
+  //   const updatedCars = cars.map((car) => ({
+  //     ...car,
+  //     favorite: favsArray.includes(car.id) ? true : false,
+  //   }));
+  //   setCars(updatedCars);
+  // }, [favs]);
 
   const favoriteToggle = (e) => {
     const id = Number(e.currentTarget.id);
@@ -22,6 +48,10 @@ export const App = () => {
       favorite: car.id === id ? !car.favorite : car.favorite,
     }));
     setCars(updatedCars);
+    const favoriteCars = updatedCars.filter((car) => car.favorite === true);
+    console.log(favoriteCars);
+    setFavs(favoriteCars);
+    localStorage.setItem("favs", JSON.stringify(favoriteCars));
   };
 
   return (
@@ -35,6 +65,8 @@ export const App = () => {
               <Catalog
                 cars={cars}
                 setCars={setCars}
+                favs={favs}
+                setFavs={setFavs}
                 favoriteToggle={favoriteToggle}
               />
             }
@@ -45,6 +77,8 @@ export const App = () => {
               <Favorites
                 cars={cars}
                 setCars={setCars}
+                favs={favs}
+                setFavs={setFavs}
                 favoriteToggle={favoriteToggle}
               />
             }

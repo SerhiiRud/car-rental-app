@@ -3,7 +3,7 @@ export const BASE_URL = "https://6474cb4d7de100807b1bc2dc.mockapi.io";
 export let page = 1;
 export const limit = 8;
 
-export const fetchCars = async (page) => {
+export const fetchAPI = async (page) => {
   const data = await axios.get(`${BASE_URL}/cars`, {
     params: {
       page,
