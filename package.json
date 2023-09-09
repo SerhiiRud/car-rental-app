@@ -2,6 +2,7 @@
   "name": "car-rental-app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://serhiirud.github.io/car-rental-app/",
   "dependencies": {
     "@emotion/react": "^11.10.8",
     "@emotion/styled": "^11.10.8",
@@ -41,5 +42,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^6.0.0"
   }
 }
