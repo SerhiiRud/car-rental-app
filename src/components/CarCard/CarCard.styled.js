@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import styled from "styled-components";
 
 export const CardWrap = styled.div`
   display: flex;
@@ -77,7 +77,7 @@ export const Title = styled.h2`
   justify-content: space-between;
 
   color: #121417;
-  font-family: Manrope;
+  font-family: Manrope, sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 500;

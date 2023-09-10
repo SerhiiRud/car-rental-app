@@ -1,5 +1,6 @@
 import { useCallback, useEffect } from "react";
 import { createPortal } from "react-dom";
+import PropTypes from "prop-types";
 import {
   Backdrop,
   Modal,
@@ -126,6 +127,11 @@ const CarModal = ({ car, onCloseModal }) => {
     </Backdrop>,
     modalRoot
   );
+};
+
+CarModal.propTypes = {
+  car: PropTypes.object.isRequired,
+  onCloseModal: PropTypes.func.isRequired,
 };
 
 export default CarModal;

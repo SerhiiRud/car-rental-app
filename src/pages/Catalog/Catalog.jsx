@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 import { fetchAPI, limit } from "../../services/API";
-
+import PropTypes from "prop-types";
 import Gallery from "../../components/Gallery";
+import Loader from "../../components/Loader";
 import { Container, Button } from "./Catalog.styled";
 
 const Catalog = ({ cars, setCars, favoriteToggle }) => {
   const [page, setPage] = useState(1);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-  const [isLoaded, setIsLoaded] = useState(false);
 
   const ERROR_MSG = "Error happend";
 
@@ -30,7 +30,6 @@ const Catalog = ({ cars, setCars, favoriteToggle }) => {
         setError(ERROR_MSG);
       } finally {
         setIsLoading(false);
-        setIsLoaded(true);
       }
     };
     fetchData();
@@ -38,6 +37,8 @@ const Catalog = ({ cars, setCars, favoriteToggle }) => {
 
   return (
     <Container>
+      {isLoading && <Loader />}
+      {error && <div>Error happend</div>}
       <Gallery cars={cars} setFavorite={favoriteToggle} />
       {cars.length > 0 && cars.length % limit === 0 && (
         <Button
@@ -51,6 +52,12 @@ const Catalog = ({ cars, setCars, favoriteToggle }) => {
       )}
     </Container>
   );
+};
+
+Catalog.propTypes = {
+  cars: PropTypes.array.isRequired,
+  setCars: PropTypes.func.isRequired,
+  favoriteToggle: PropTypes.func.isRequired,
 };
 
 export default Catalog;

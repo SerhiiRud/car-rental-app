@@ -1,9 +1,9 @@
 import { useState } from "react";
+import PropTypes from "prop-types";
 import CarModal from "../CarModal/CarModal";
 import icon from "../../images/svg/sprite.svg";
 import {
   CardWrap,
-  CardSubwrap,
   ImageWrap,
   Image,
   AddFavoriteButton,
@@ -18,7 +18,6 @@ const CarCard = ({ car, setFavorite }) => {
   const [isOpened, setIsOpen] = useState(false);
 
   const handleCloseModal = () => {
-    console.log(1);
     setIsOpen(!isOpened);
   };
 
@@ -87,6 +86,11 @@ const CarCard = ({ car, setFavorite }) => {
       {isOpened && <CarModal car={car} onCloseModal={handleCloseModal} />}
     </CardWrap>
   );
+};
+
+CarCard.propTypes = {
+  car: PropTypes.object.isRequired,
+  setFavorite: PropTypes.func.isRequired,
 };
 
 export default CarCard;

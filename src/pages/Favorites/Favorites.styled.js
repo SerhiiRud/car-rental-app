@@ -27,8 +27,11 @@ export const Button = styled.button`
 
 export const Text = styled.p`
   text-align: center;
-  font-size: 28px;
+  font-size: 32px;
   font-weight: 700;
+  margin-bottom: 30px;
+  color: #444888;
+  background: #ffffff;
 `;
 
 export const Image = styled.img`

@@ -1,10 +1,22 @@
 import { Outlet } from "react-router-dom";
-import { Container, Header, Menu, HeaderLink } from "./Sidebar.styled";
+import {
+  Container,
+  LogoImage,
+  LogoLink,
+  Header,
+  Menu,
+  HeaderLink,
+} from "./Sidebar.styled";
+import logo from "../../images/png/logo.png";
 
 const Sidebar = () => {
   return (
     <Container>
       <Header>
+        <LogoLink to="/">
+          <LogoImage src={logo} alt="logo" />
+        </LogoLink>
+
         <Menu>
           <li>
             <HeaderLink to="/">Home</HeaderLink>

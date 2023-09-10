@@ -7,7 +7,15 @@ export const Container = styled.div`
   margin-right: auto;
 `;
 
+export const LogoImage = styled.img`
+  width: 60px;
+`;
+
+export const LogoLink = styled(StyledLink)``;
+
 export const Header = styled.header`
+  display: flex;
+  gap: 30px;
   background-color: #4267b2;
   padding: 20px;
 `;

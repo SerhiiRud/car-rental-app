@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import CarCard from "../CarCard/CarCard";
 import { Container } from "./Gallery.styled";
 
@@ -20,6 +21,11 @@ const Gallery = ({ cars, setFavorite }) => {
       </Container>
     </>
   );
+};
+
+Gallery.propTypes = {
+  cars: PropTypes.array.isRequired,
+  setFavorite: PropTypes.func.isRequired,
 };
 
 export default Gallery;

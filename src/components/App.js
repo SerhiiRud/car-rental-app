@@ -1,5 +1,5 @@
-import { Route, Routes } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { Route, Routes, Navigate } from "react-router-dom";
+import { useState } from "react";
 import { lazy, Suspense } from "react";
 import { GlobalStyle } from "./GlobalStyle";
 import Loader from "./Loader";
@@ -11,7 +11,6 @@ const Favorites = lazy(() => import("../pages/Favorites"));
 
 export const App = () => {
   const [cars, setCars] = useState([]);
-  const [filterValues, setFilterValues] = useState({});
 
   const favoriteToggle = (e) => {
     const id = Number(e.currentTarget.id);
@@ -45,6 +44,7 @@ export const App = () => {
             element={<Favorites cars={cars} favoriteToggle={favoriteToggle} />}
           />
         </Route>
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
       <GlobalStyle />
     </Suspense>

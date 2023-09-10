@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import Gallery from "../../components/Gallery";
 import { Container, Button, Text, Image } from "./Favorites.styled";
 
@@ -15,6 +16,11 @@ const Favorites = ({ cars, favoriteToggle }) => {
       )}
     </Container>
   );
+};
+
+Favorites.propTypes = {
+  cars: PropTypes.array.isRequired,
+  favoriteToggle: PropTypes.func.isRequired,
 };
 
 export default Favorites;
