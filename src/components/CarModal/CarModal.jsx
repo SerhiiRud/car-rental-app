@@ -1,6 +1,7 @@
 import { useCallback, useEffect } from "react";
 import { createPortal } from "react-dom";
 import PropTypes from "prop-types";
+import { formatNumber } from "../../services/formatNumber";
 import {
   Backdrop,
   Modal,
@@ -114,7 +115,7 @@ const CarModal = ({ car, onCloseModal }) => {
               <ConditionText>{personeConditions[1]}</ConditionText>
               <ConditionText>{personeConditions[2]}</ConditionText>
               <ConditionText>
-                Mileage: <span>{mileage}</span>
+                Mileage: <span>{formatNumber(mileage)}</span>
               </ConditionText>
               <ConditionText>
                 Price: <span>{rentalPrice.slice(1)}$</span>
