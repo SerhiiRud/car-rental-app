@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { lazy, Suspense } from "react";
+import { GlobalStyle } from "./GlobalStyle";
 import Loader from "./Loader";
 
 const Home = lazy(() => import("../pages/Home"));
@@ -45,6 +46,7 @@ export const App = () => {
           />
         </Route>
       </Routes>
+      <GlobalStyle />
     </Suspense>
   );
 };

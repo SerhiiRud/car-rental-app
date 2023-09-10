@@ -8,7 +8,7 @@ export const Container = styled.div`
 `;
 
 export const Header = styled.header`
-  border-bottom: 2px grey solid;
+  background-color: #4267b2;
   padding: 20px;
 `;
 
@@ -20,9 +20,14 @@ export const Menu = styled.ul`
 
 export const HeaderLink = styled(StyledLink)`
   text-decoration: none;
-  color: grey;
+  color: #ffffff;
 
   &.active {
-    color: red;
+    color: #ffbf00;
+  }
+
+  &:hover,
+  &:focus {
+    color: #ffbf00;
   }
 `;

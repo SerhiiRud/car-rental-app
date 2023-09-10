@@ -2,11 +2,12 @@ import CarCard from "../CarCard/CarCard";
 import { Container } from "./Gallery.styled";
 
 const Gallery = ({ cars, setFavorite }) => {
-  const carsIndexes = cars
-    .map((car) => car.id)
-    .filter((value, index, self) => self.indexOf(value) === index);
-  const carsToShow = cars.filter((car) => carsIndexes.includes(car.id));
-  console.log(carsIndexes);
+  const carsToShow = cars.filter(
+    (obj, index) =>
+      cars.findIndex(
+        (item) => item.location === obj.location && item.id === obj.id
+      ) === index
+  );
 
   return (
     <>

@@ -25,7 +25,7 @@ const Catalog = ({ cars, setCars, favoriteToggle }) => {
           favorite: favoriteCars.includes(car.id) ? true : false,
         }));
 
-        setCars(favoritedCars);
+        setCars((prev) => [...prev, ...favoritedCars]);
       } catch (error) {
         setError(ERROR_MSG);
       } finally {
