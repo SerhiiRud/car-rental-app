@@ -10,25 +10,7 @@ const Favorites = lazy(() => import("../pages/Favorites"));
 
 export const App = () => {
   const [cars, setCars] = useState([]);
-  const [favs, setFavs] = useState([]);
-
-  // useEffect(() => {
-
-  // setFavs(
-  //   localStorage.getItem("favs")
-  //     ? JSON.parse(localStorage.getItem("favs"))
-  //     : []
-  // );
-  // }, []);
-
-  // useEffect(() => {
-  //   const favsArray = favs.map((fav) => fav.id);
-  //   const updatedCars = cars.map((car) => ({
-  //     ...car,
-  //     favorite: favsArray.includes(car.id) ? true : false,
-  //   }));
-  //   setCars(updatedCars);
-  // }, [favs]);
+  const [filterValues, setFilterValues] = useState({});
 
   const favoriteToggle = (e) => {
     const id = Number(e.currentTarget.id);
@@ -39,7 +21,6 @@ export const App = () => {
     }));
     setCars(updatedCars);
     const favoriteCars = updatedCars.filter((car) => car.favorite === true);
-    console.log(favoriteCars);
     localStorage.setItem("favs", JSON.stringify(favoriteCars));
   };
 
@@ -54,23 +35,13 @@ export const App = () => {
               <Catalog
                 cars={cars}
                 setCars={setCars}
-                favs={favs}
-                setFavs={setFavs}
                 favoriteToggle={favoriteToggle}
               />
             }
           />
           <Route
             path="/favorites"
-            element={
-              <Favorites
-                cars={cars}
-                setCars={setCars}
-                favs={favs}
-                setFavs={setFavs}
-                favoriteToggle={favoriteToggle}
-              />
-            }
+            element={<Favorites cars={cars} favoriteToggle={favoriteToggle} />}
           />
         </Route>
       </Routes>

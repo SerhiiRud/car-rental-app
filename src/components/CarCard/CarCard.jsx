@@ -1,6 +1,18 @@
 import { useState } from "react";
 import CarModal from "../CarModal/CarModal";
-import { FavoriteButton } from "./CarCard.styled";
+import icon from "../../images/svg/sprite.svg";
+import {
+  CardWrap,
+  CardSubwrap,
+  ImageWrap,
+  Image,
+  AddFavoriteButton,
+  DescriptionWrap,
+  TitleWrap,
+  Title,
+  Description,
+  CardButton,
+} from "./CarCard.styled";
 
 const CarCard = ({ car, setFavorite }) => {
   const [isOpened, setIsOpen] = useState(false);
@@ -10,34 +22,70 @@ const CarCard = ({ car, setFavorite }) => {
     setIsOpen(!isOpened);
   };
 
-  const { id, favorite, img, make, year, rentalPrice } = car;
+  const {
+    id,
+    address,
+    rentalCompany,
+    type,
+    model,
+    mileage,
+    functionalities,
+    img,
+    make,
+    rentalPrice,
+    year,
+    favorite,
+  } = car;
+
+  const randomFeature = Math.floor(Math.random() * functionalities.length);
+
+  const cardScheme = [
+    address.split(", ")[1],
+    address.split(", ")[2],
+    rentalCompany,
+    type,
+    model,
+    mileage,
+    functionalities[randomFeature],
+  ];
+
   return (
-    <div>
-      <span>{favorite}</span>
-      <img src={img}></img>
-      <div>
-        <span>{make}, </span>
-        <span>{year}</span>
-        <span>{rentalPrice}</span>
-      </div>
-      <FavoriteButton
-        type="button"
-        id={id}
-        onClick={setFavorite}
-        isFavorite={favorite}
-      >
-        Favorite
-      </FavoriteButton>
-      <button
+    <CardWrap>
+      <ImageWrap>
+        <Image src={img} alt={`${make} ${model}`}></Image>
+        <AddFavoriteButton
+          type="button"
+          onClick={setFavorite}
+          isFavorite={favorite}
+          id={id}
+        >
+          <svg className={`icon ${favorite ? "favorite" : ""}`}>
+            <use href={`${icon}#icon-heart`}></use>
+          </svg>
+        </AddFavoriteButton>
+      </ImageWrap>
+      <DescriptionWrap>
+        <TitleWrap>
+          <Title>
+            <span className="make">
+              {make} <span className="accent">{model}</span>, {year}
+            </span>
+            <span className="price">{rentalPrice}</span>
+          </Title>
+        </TitleWrap>
+        <Description>{cardScheme.join(" | ").slice(0, 95)}</Description>
+      </DescriptionWrap>
+
+      <CardButton
         type="button"
         onClick={() => {
           setIsOpen(true);
         }}
       >
         Learn more
-      </button>
+      </CardButton>
       {isOpened && <CarModal car={car} onCloseModal={handleCloseModal} />}
-    </div>
+    </CardWrap>
   );
 };
 

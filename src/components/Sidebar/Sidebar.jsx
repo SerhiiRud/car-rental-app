@@ -1,9 +1,9 @@
 import { Outlet } from "react-router-dom";
-import { Header, Menu, HeaderLink } from "./Sidebar.styled";
+import { Container, Header, Menu, HeaderLink } from "./Sidebar.styled";
 
 const Sidebar = () => {
   return (
-    <>
+    <Container>
       <Header>
         <Menu>
           <li>
@@ -20,7 +20,7 @@ const Sidebar = () => {
       <main>
         <Outlet />
       </main>
-    </>
+    </Container>
   );
 };
 
