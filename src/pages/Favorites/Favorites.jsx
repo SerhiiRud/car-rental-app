@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import Gallery from "../../components/Gallery";
-import { Container, Button, Text, Image } from "./Favorites.styled";
+import { Container, Text } from "./Favorites.styled";
 
 const Favorites = ({ cars, favoriteToggle }) => {
   const favoriteCars = localStorage.getItem("favs")
