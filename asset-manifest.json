@@ -1,25 +1,25 @@
 {
   "files": {
     "main.css": "/car-rental-app/static/css/main.7cda0caf.css",
-    "main.js": "/car-rental-app/static/js/main.037fca4e.js",
+    "main.js": "/car-rental-app/static/js/main.be91856d.js",
     "static/js/844.b076b907.chunk.js": "/car-rental-app/static/js/844.b076b907.chunk.js",
     "static/js/87.d5f91003.chunk.js": "/car-rental-app/static/js/87.d5f91003.chunk.js",
-    "static/js/299.5bf8c3cd.chunk.js": "/car-rental-app/static/js/299.5bf8c3cd.chunk.js",
-    "static/js/297.5310f8b5.chunk.js": "/car-rental-app/static/js/297.5310f8b5.chunk.js",
+    "static/js/299.3e1b38c8.chunk.js": "/car-rental-app/static/js/299.3e1b38c8.chunk.js",
+    "static/js/297.54c634ae.chunk.js": "/car-rental-app/static/js/297.54c634ae.chunk.js",
     "static/js/384.7dd27427.chunk.js": "/car-rental-app/static/js/384.7dd27427.chunk.js",
     "static/media/hero.png": "/car-rental-app/static/media/hero.3e43146f83aba4882b5c.png",
     "static/media/sprite.svg": "/car-rental-app/static/media/sprite.53ff95ec62a8342e18aa220a801f53a2.svg",
     "index.html": "/car-rental-app/index.html",
     "main.7cda0caf.css.map": "/car-rental-app/static/css/main.7cda0caf.css.map",
-    "main.037fca4e.js.map": "/car-rental-app/static/js/main.037fca4e.js.map",
+    "main.be91856d.js.map": "/car-rental-app/static/js/main.be91856d.js.map",
     "844.b076b907.chunk.js.map": "/car-rental-app/static/js/844.b076b907.chunk.js.map",
     "87.d5f91003.chunk.js.map": "/car-rental-app/static/js/87.d5f91003.chunk.js.map",
-    "299.5bf8c3cd.chunk.js.map": "/car-rental-app/static/js/299.5bf8c3cd.chunk.js.map",
-    "297.5310f8b5.chunk.js.map": "/car-rental-app/static/js/297.5310f8b5.chunk.js.map",
+    "299.3e1b38c8.chunk.js.map": "/car-rental-app/static/js/299.3e1b38c8.chunk.js.map",
+    "297.54c634ae.chunk.js.map": "/car-rental-app/static/js/297.54c634ae.chunk.js.map",
     "384.7dd27427.chunk.js.map": "/car-rental-app/static/js/384.7dd27427.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.7cda0caf.css",
-    "static/js/main.037fca4e.js"
+    "static/js/main.be91856d.js"
   ]
 }
