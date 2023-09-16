@@ -113,7 +113,6 @@ export const CardButton = styled.button`
   align-items: center;
 
   border-color: transparent;
-
   border-radius: 12px;
   background: #3470ff;
 
@@ -123,6 +122,8 @@ export const CardButton = styled.button`
   font-style: normal;
   font-weight: 600;
   line-height: 1.43;
+
+  cursor: pointer;
 
   &:hover,
   &:focus {
