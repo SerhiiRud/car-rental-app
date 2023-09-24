@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import FilterBar from "../../components/FilterBar/FilterBar";
 import Gallery from "../../components/Gallery";
 import { Container, Text } from "./Favorites.styled";
 
@@ -9,6 +10,7 @@ const Favorites = ({ cars, favoriteToggle }) => {
 
   return (
     <Container>
+      <FilterBar />
       {favoriteCars.length === 0 ? (
         <Text>You don't have favorite cars</Text>
       ) : (
