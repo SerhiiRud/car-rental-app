@@ -2,10 +2,10 @@ import PropTypes from "prop-types";
 import CarCard from "../CarCard/CarCard";
 import { Container } from "./Gallery.styled";
 
-const Gallery = ({ cars, setFavorite }) => {
-  const carsToShow = cars.filter(
+const Gallery = ({ cars, visibleCars, setFavorite }) => {
+  const carsToShow = visibleCars.filter(
     (obj, index) =>
-      cars.findIndex(
+      visibleCars.findIndex(
         (item) => item.location === obj.location && item.id === obj.id
       ) === index
   );

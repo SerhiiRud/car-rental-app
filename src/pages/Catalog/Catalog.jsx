@@ -41,8 +41,12 @@ const Catalog = ({ cars, setCars, favoriteToggle }) => {
     <Container>
       {isLoading && <Loader />}
       {error && <div>Error happend</div>}
-      <FilterBar setVisibleCars={setVisibleCars} cars={cars} />
-      <Gallery cars={cars} setFavorite={favoriteToggle} />
+      <FilterBar cars={cars} setVisibleCars={setVisibleCars} />
+      <Gallery
+        cars={cars}
+        setFavorite={favoriteToggle}
+        visibleCars={visibleCars}
+      />
       {cars.length > 0 && cars.length % limit === 0 && (
         <Button
           type="button"
