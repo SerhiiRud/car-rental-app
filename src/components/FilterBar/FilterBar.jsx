@@ -16,12 +16,12 @@ const FilterBar = ({ setVisibleCars, cars }) => {
         : Number(evt.target.price.value);
 
     const mileageFrom =
-      evt.target.mileageFrom.value === 0
+      evt.target.mileageFrom.value.length === 0
         ? 0
         : Number(evt.target.mileageFrom.value);
 
     const mileageTo =
-      evt.target.mileageTo.value === 0
+      evt.target.mileageTo.value.length === 0
         ? MAXMILEAGE
         : Number(evt.target.mileageTo.value);
 
