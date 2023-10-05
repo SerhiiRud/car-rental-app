@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { makeSelection, priceSelection } from "../../services/filters";
+import { Form, Select, Label, InputWrapper } from "./FilterBar.styled";
 
 const MAXPRICE = 500;
 const MAXMILEAGE = 1000000;
@@ -41,31 +42,44 @@ const FilterBar = ({ setVisibleCars, cars }) => {
   }, [cars, setVisibleCars]);
 
   return (
-    <form
+    <Form
       onSubmit={(evt) => {
         handleSearch(evt);
       }}
     >
-      <select id="make">
-        <option defaultValue>All</option>
-        {makeSelection(cars).map((make) => (
-          <option value={make} key={make}>
-            {make}
-          </option>
-        ))}
-      </select>
-      <select id="price">
-        <option defaultValue>All</option>
-        {priceSelection(30, MAXPRICE, 10).map((price) => (
-          <option value={price} key={price}>
-            {price}
-          </option>
-        ))}
-      </select>
-      <input name="mileageFrom" placeholder="From" type="number"></input>
-      <input name="mileageTo" placeholder="To" type="number"></input>
+      <Label>
+        Car brand
+        <Select id="make">
+          <option defaultValue>All</option>
+          {makeSelection(cars).map((make) => (
+            <option value={make} key={make}>
+              {make}
+            </option>
+          ))}
+        </Select>
+      </Label>
+
+      <Label>
+        Price/ 1 hour
+        <Select id="price">
+          <option defaultValue>All</option>
+          {priceSelection(30, MAXPRICE, 10).map((price) => (
+            <option value={price} key={price}>
+              {price}
+            </option>
+          ))}
+        </Select>
+      </Label>
+
+      <Label>
+        Сar mileage / km
+        <InputWrapper>
+          <input name="mileageFrom" placeholder="From" type="number"></input>
+          <input name="mileageTo" placeholder="To" type="number"></input>
+        </InputWrapper>
+      </Label>
       <button type="submit">Submit</button>
-    </form>
+    </Form>
   );
 };
 
