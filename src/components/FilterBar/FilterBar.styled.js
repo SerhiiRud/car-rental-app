@@ -1,5 +1,17 @@
 import styled from "styled-components";
 
+export const Container = styled.div`
+  display: flex;
+  width: 859px;
+  height: 74px;
+  align-items: flex-end;
+  gap: 18px;
+
+  margin-bottom: 50px;
+  margin-left: auto;
+  margin-right: auto;
+`;
+
 export const Form = styled.form`
   display: flex;
   gap: 18px;
@@ -7,12 +19,100 @@ export const Form = styled.form`
 `;
 
 export const Select = styled.select`
-  display: block;
-  padding: 14px 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+
+  height: 48px;
+
+  border-radius: 14px;
+  background: #f7f7fb;
+  border-color: transparent;
+  appearance: none;
+
+  color: #121417;
+  font-size: 18px;
+  font-weight: 500;
+
+  &#brand {
+    padding: 14px 18px;
+    width: 224px;
+  }
+
+  &#price {
+    padding: 14px 18px;
+    width: 125px;
+  }
 `;
 
 export const Label = styled.label`
-  display: block;
+  color: #8a8a89;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.28;
 `;
 
-export const InputWrapper = styled.div``;
+export const InputWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+`;
+
+export const Input = styled.input`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+
+  border-radius: 14px;
+  background: #f7f7fb;
+  border-color: transparent;
+
+  color: #121417;
+  font-size: 18px;
+  font-weight: 500;
+
+  &#mileage {
+    width: 160px;
+    height: 48px;
+    padding: 14px 24px 14px 24px;
+
+    border-radius: 14px 0px 0px 14px;
+    border-right: 1px solid rgba(138, 138, 137, 0.2);
+    background: #f7f7fb;
+  }
+
+  &#endMileage {
+    width: 160px;
+    height: 48px;
+    padding: 14px 24px 14px 24px;
+
+    border-radius: 0px 14px 14px 0px;
+    background: #f7f7fb;
+  }
+`;
+
+export const SearchButton = styled.button`
+  display: flex;
+  width: 136px;
+  height: 48px;
+  padding: 14px 44px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  border-color: transparent;
+  background: #3470ff;
+
+  color: #fff;
+  font-family: Manrope;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.43;
+
+  &:hover,
+  &:focus {
+    background-color: #0b44cd;
+  }
+`;
