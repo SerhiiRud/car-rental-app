@@ -1,9 +1,11 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { makeSelection, priceSelection } from "../../services/filters";
+import icon from "../../images/svg/sprite.svg";
 import {
   Container,
   Form,
   Select,
+  SelectContainer,
   Label,
   InputWrapper,
   Input,
@@ -14,6 +16,25 @@ const MAXPRICE = 500;
 const MAXMILEAGE = 1000000;
 
 const FilterBar = ({ setVisibleCars, cars }) => {
+  const [brandSelectOpen, setBrandSelectOpen] = useState(false);
+  const [priceSelectOpen, setPriceSelectOpen] = useState(false);
+
+  const handleBrandSelectFocus = () => {
+    setBrandSelectOpen(true);
+  };
+
+  const handleBrandSelectChange = () => {
+    setBrandSelectOpen(false);
+  };
+
+  const handlePriceSelectFocus = () => {
+    setPriceSelectOpen(true);
+  };
+
+  const handlePriceSelectChange = () => {
+    setPriceSelectOpen(false);
+  };
+
   const handleSearch = (evt) => {
     evt.preventDefault();
     const makeSearch =
@@ -56,30 +77,56 @@ const FilterBar = ({ setVisibleCars, cars }) => {
           handleSearch(evt);
         }}
       >
-        <Label>
-          Car brand
-          <Select id="make">
-            <option defaultValue>All</option>
-            {makeSelection(cars).map((make) => (
-              <option value={make} key={make}>
-                {make}
-              </option>
-            ))}
-          </Select>
-        </Label>
-
-        <Label>
-          Price/ 1 hour
-          <Select id="price">
-            <option defaultValue>All</option>
-            {priceSelection(30, MAXPRICE, 10).map((price) => (
-              <option value={price} key={price}>
-                {price}
-              </option>
-            ))}
-          </Select>
-        </Label>
-
+        <SelectContainer>
+          <Label>
+            Car brand
+            <Select
+              id="make"
+              onFocus={handleBrandSelectFocus}
+              onBlur={handleBrandSelectChange}
+              onChange={handleBrandSelectChange}
+            >
+              <option defaultValue>All</option>
+              {makeSelection(cars).map((make) => (
+                <option value={make} key={make}>
+                  {make}
+                </option>
+              ))}
+            </Select>
+          </Label>
+          <svg className="icon">
+            <use
+              href={`${icon}${
+                brandSelectOpen ? "#icon-chevron-top" : "#icon-chevron-down"
+              }`}
+            ></use>
+          </svg>
+        </SelectContainer>
+        <SelectContainer>
+          <Label>
+            Price/ 1 hour
+            <Select
+              id="price"
+              onFocus={handlePriceSelectFocus}
+              onBlur={handlePriceSelectChange}
+              onChange={handlePriceSelectChange}
+            >
+              <option defaultValue>All</option>
+              {priceSelection(30, MAXPRICE, 10).map((price) => (
+                <option value={price} key={price}>
+                  To {price}$
+                </option>
+              ))}
+            </Select>
+          </Label>
+          <svg className="icon">
+            <use
+              href={`${icon}${
+                priceSelectOpen ? "#icon-chevron-top" : "#icon-chevron-down"
+              }`}
+            ></use>
+          </svg>
+        </SelectContainer>
         <Label>
           Сar mileage / km
           <InputWrapper>

@@ -16,6 +16,7 @@ export const Form = styled.form`
   display: flex;
   gap: 18px;
   padding-bottom: 50px;
+  align-items: flex-end;
 `;
 
 export const Select = styled.select`
@@ -46,6 +47,26 @@ export const Select = styled.select`
   }
 `;
 
+export const SelectContainer = styled.div`
+  position: relative;
+
+  & .icon {
+    position: absolute;
+    right: 18px;
+    top: 32px;
+
+    width: 20px;
+    height: 20px;
+
+    pointer-events: none;
+
+    &:hover,
+    &:focus {
+      background-color: red;
+    }
+  }
+`;
+
 export const Label = styled.label`
   color: #8a8a89;
   font-size: 14px;
@@ -55,7 +76,6 @@ export const Label = styled.label`
 
 export const InputWrapper = styled.div`
   display: flex;
-  flex-direction: column;
   align-items: flex-start;
   gap: 8px;
 `;
